@@ -3,6 +3,7 @@ package utils;
 import data.Cell;
 import data.Grid;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class BlockUtils implements BlockIsoUtil, BlockSolvingUtil {
@@ -43,7 +44,17 @@ public class BlockUtils implements BlockIsoUtil, BlockSolvingUtil {
 
     @Override
     public List<Cell> getBlockWhiteSpaces(Grid grid, Cell anchor) {
-        return null;
+
+        List<Cell> whiteSpaces = new LinkedList<>();
+        int laufVarR = anchor.getrIndex() + 3;       //Laufvariable fuer die Zeilen
+        int laufVarC = anchor.getcIndex() + 3;       //Laufvariable fuer die Spalten
+
+        for (int rIndex = anchor.getrIndex(); rIndex < laufVarR; rIndex++)                            //Gehe jede Zelle des Blocks durch und pruefe ob diese leer ist
+            for (int cIndex = anchor.getcIndex(); cIndex < laufVarC; cIndex++)
+                if (grid.getValue(rIndex, cIndex) == -1)                                            //Falls Zelle leer, fuege sie zur Liste hinzu
+                    whiteSpaces.add(new Cell(rIndex, cIndex));
+
+        return whiteSpaces;
     }
 
     @Override
