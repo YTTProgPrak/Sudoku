@@ -12,6 +12,7 @@ public interface ColIsoUtil {
     boolean isBlockInternColPermutation(Grid grid1, Grid grid2);
     int[] getBlockInternColPermutationImage(Grid grid1, Grid grid2, Cell anchor);
     //ValuePermutation
-    void applyColValuePermutation(Grid grid, Cell anchor, int[] image); int[] getColValuePermutationImage(Grid grid1, Grid grid2, Cell anchor); // Achtung: Diese Methode ist neu! (2018 05 03)
+    void applyColValuePermutation(Grid grid, Cell anchor, int[] image);
+    int[] getColValuePermutationImage(Grid grid1, Grid grid2, Cell anchor); // Achtung: Diese Methode ist neu! (2018 05 03)
     boolean isColValuePermutation(Grid grid1, Grid grid2, Cell anchor);
 }
