@@ -38,6 +38,7 @@ public class ColUtils implements ColIsoUtil, ColSolvingUtil {
 
     @java.lang.Override
     public boolean isValidCol(Grid grid, Cell anchor) {
+        boolean result = true;
         int cIndex = anchor.getcIndex();
         int rIndex = anchor.getrIndex();
         int dim = grid.getColValues(cIndex).length;
@@ -51,7 +52,11 @@ public class ColUtils implements ColIsoUtil, ColSolvingUtil {
                 possibleValues.remove(cellValue);
             }else if(cellValue == -1){
 
+            }else{
+                result = false;
+                break;
             }
+            rIndex++;
 
         }
 
